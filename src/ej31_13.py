@@ -32,11 +32,23 @@ def calcular_media(lista : list) -> float:
     for numero in lista:
         suma += int(numero)
 
-    return suma // divisor
+    return suma / divisor
 
 
-def calcular_desviacion_tipica(lista : list) -> float:
-    return math.sqrt(calcular_media(lista))
+def calcular_varianza(lista : list,media : int ) -> float:
+    resultado = 0
+    longitud = len(lista)
+
+    for valor in lista:
+
+        resultado += (int(valor) - media)**2
+
+
+    return resultado / longitud
+
+
+def calcular_desviacion_tipica(varianza: int):
+    return math.sqrt(varianza)
 
 
 def comprobar_lista(lista : list) -> list:
@@ -67,13 +79,16 @@ def menu():
 
             lista_comprobada = comprobar_lista(entrada)
 
-            media,desviacion_tipica = calcular_media(lista_comprobada),calcular_desviacion_tipica(lista_comprobada)
+            media = calcular_media(lista_comprobada)
+            varianza = calcular_varianza(lista_comprobada,media)
+            desviacion_tipica = calcular_desviacion_tipica(varianza)
 
             mostrar_resultado(media,desviacion_tipica)
         except ValueError:
             pausa(0,False,True)
             print("**ERROR**\nHas introducido un valor invalido.\nPor favor vuelva a escribir la cadena.\n")
-
+    
+    
     
 
 def main():
