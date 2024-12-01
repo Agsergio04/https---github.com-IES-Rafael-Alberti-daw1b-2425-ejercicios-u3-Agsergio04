@@ -60,10 +60,13 @@ def dias_en_mes(mes: int, anio: int) -> int:
 
 def comprobar_fecha(dia : int, mes : int, anio : int) -> bool:
     condicion = True
+
     if not comprobar_longitud(dia, mes, anio):
         condicion = False
+
     if mes < 1 or mes > 12:
         condicion = False
+        
     if dia < 1 or dia > dias_en_mes(mes, anio):
         condicion = False
     return condicion 
@@ -121,14 +124,15 @@ def main():
                 print("La fecha introducida no es valida.")
 
         elif entrada[0] == "salir":
-            print("Cerrando")
+            limpiar_pantalla()
+            print("\n\tADIOS ! ! !")
 
         else: 
             print("Por favor ingrese la fecha en el formato correcto.")
         
         pausa(0, True, True) 
 
-    limpiar_pantalla()
+    
 
 
 if __name__ == "__main__":

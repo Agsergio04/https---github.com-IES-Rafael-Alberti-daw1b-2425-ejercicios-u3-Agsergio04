@@ -22,7 +22,7 @@ def limpiar_pantalla():
 
 
 def pedir_usuario(cadena: str) -> str:
-    return input(f"{cadena}\n>")
+    return input(f"{cadena}\n>").lower()
 
 
 
@@ -59,17 +59,24 @@ def main():
 
     limpiar_pantalla()
 
-    while fruta_usuario.lower() != "salir":
-        print("Las frutas disponibles son (platano,manzazna,pera y naranja)")
-        fruta_usuario = pedir_usuario("¿Que fruta deseas comprar? (salir para salir): ").lower()
-        kilos = pedir_usuario("¿Cuántos kilos deseas comprar? (presiona enter para salir)")
+    while fruta_usuario != "salir":
+        try:
+            print("Las frutas disponibles son (platano,manzazna,pera y naranja)")
+            fruta_usuario = pedir_usuario("¿Que fruta deseas comprar? (salir para salir): ")
 
-        if fruta_usuario != "salir":
+            if fruta_usuario == "salir":
+                limpiar_pantalla()
+                break
+
+            kilos = pedir_usuario("¿Cuántos kilos deseas comprar? (presiona enter para salir)")
+
             precio = obtener_precio(fruta_usuario,float(kilos),fruteria)
-            
+                
             mostrar_resultado(fruta_usuario,kilos,precio)
-        
-    limpiar_pantalla()
+
+           
+        except ValueError:
+            print("**ERROR**\nIntroduce un valor valido")
     
 
 

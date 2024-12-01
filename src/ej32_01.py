@@ -32,7 +32,11 @@ def menu(divisa: dict):
         usuario = pedir_usuario("Introduce de qué divisa quieres saber su simbolo(o escribe salir): ")
 
         if usuario in divisa:
-            print(f"El simbolo de {usuario.capitalize()} es {divisa[usuario]}")
+            print(f"El simbolo de {usuario.title()} es {divisa[usuario]}")
+
+        if usuario == "salir":
+            limpiar_pantalla()
+
         else:
             print("**ERROR**\nSimbolo no encontrado.")
 
