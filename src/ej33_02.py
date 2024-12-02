@@ -33,7 +33,7 @@ def set_alumno_primaria() -> set:
         limpiar_pantalla()
         entrada =  pedir_usuario("Introduce el nombre de pila del alumno de primaria,escribe 'x' para salir")
 
-        if entrada == 'x':
+        if entrada == 'X':
             bandera = False
 
         conjunto.add(entrada)
@@ -49,7 +49,7 @@ def set_alumno_secundaria() -> set:
         limpiar_pantalla()
         entrada =  pedir_usuario("Introduce el nombre de pila del alumno de secundaria,escribe 'x' para salir")
 
-        if entrada == 'x':
+        if entrada == 'X':
             bandera = False
             
         conjunto.add(entrada)
